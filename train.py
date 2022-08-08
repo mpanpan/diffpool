@@ -48,7 +48,7 @@ def evaluate(dataset, model, args, name='Validation', max_num_examples=None):
             if (batch_idx+1)*args.batch_size > max_num_examples:
                 break
 
-    labels = np.hstack(labels)
+    labels = np.hstack(labels)  # 将参数元组的元素数组按照水平方向进行叠加
     preds = np.hstack(preds)
     
     result = {'prec': metrics.precision_score(labels, preds, average='macro'),
